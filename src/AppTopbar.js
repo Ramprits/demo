@@ -15,7 +15,7 @@ export class AppTopbar extends Component {
   render() {
     return (
       <div className="layout-topbar clearfix">
-        <a className="layout-menu-button" onClick={this.props.onToggleMenu}>
+        <a className="layout-menu-button" href="#/" onClick={this.props.onToggleMenu}>
           <span className="pi pi-bars" />
         </a>
         <div className="layout-topbar-icons">
@@ -23,12 +23,12 @@ export class AppTopbar extends Component {
             <InputText type="text" placeholder="Search" />
             <span className="layout-topbar-search-icon pi pi-search" />
           </span>
-          <a style={{ display: "none" }}>
+          <a style={{ display: "none" }} href="#/">
             <span className="layout-topbar-item-text">Events</span>
             <span className="layout-topbar-icon pi pi-calendar" />
             <span className="layout-topbar-badge">5</span>
           </a>
-          <a style={{ display: "none" }}>
+          <a style={{ display: "none" }} href="#/">
             <span className="layout-topbar-item-text">Settings</span>
             <span className="layout-topbar-icon pi pi-cog" />
           </a>

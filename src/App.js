@@ -1,25 +1,13 @@
 import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import classNames from "classnames";
 import { AppTopbar } from "./AppTopbar";
 import { AppFooter } from "./AppFooter";
 import { AppMenu } from "./AppMenu";
 import { AppInlineProfile } from "./AppInlineProfile";
-import { Route } from "react-router-dom";
 import { Dashboard } from "./components/Dashboard";
-import { FormsDemo } from "./components/FormsDemo";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
-import { Post } from "./components/Post";
-import { SampleDemo } from "./components/SampleDemo";
-import { DataDemo } from "./components/DataDemo";
-import { PanelsDemo } from "./components/PanelsDemo";
-import { OverlaysDemo } from "./components/OverlaysDemo";
-import { MenusDemo } from "./components/MenusDemo";
-import { MessagesDemo } from "./components/MessagesDemo";
-import { ChartsDemo } from "./components/ChartsDemo";
-import { MiscDemo } from "./components/MiscDemo";
-import { EmptyPage } from "./components/EmptyPage";
-import { Documentation } from "./components/Documentation";
 import { ScrollPanel } from "primereact/components/scrollpanel/ScrollPanel";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -105,185 +93,112 @@ class App extends Component {
         }
       },
       {
-        label: "Menu Modes",
+        label: "Student Management",
         icon: "pi pi-fw pi-cog",
         items: [
           {
-            label: "Static Menu",
+            label: "Students",
             icon: "pi pi-fw pi-bars",
-            command: () => this.setState({ layoutMode: "static" })
+            command: () => {
+              window.location = "#/students";
+              this.setState({ layoutMode: "static" });
+            }
           },
           {
-            label: "Overlay Menu",
+            label: "Admissions",
             icon: "pi pi-fw pi-bars",
-            command: () => this.setState({ layoutMode: "overlay" })
+            command: () => {
+              window.location = "#/admissions";
+              this.setState({ layoutMode: "static" });
+            }
+          },
+          {
+            label: "Transfer",
+            icon: "pi pi-fw pi-bars",
+            command: () => {
+              window.location = "#/transfer";
+              this.setState({ layoutMode: "static" });
+            }
           }
         ]
       },
       {
-        label: "Menu Colors",
+        label: "Result Management",
         icon: "pi pi-fw pi-align-left",
         items: [
           {
-            label: "Dark",
+            label: "Results",
             icon: "pi pi-fw pi-bars",
-            command: () => this.setState({ layoutColorMode: "dark" })
-          },
-          {
-            label: "Light",
-            icon: "pi pi-fw pi-bars",
-            command: () => this.setState({ layoutColorMode: "light" })
+            command: () => {
+              window.location = "#/results";
+              this.setState({ layoutColorMode: "dark", layoutMode: "static" });
+            }
           }
         ]
       },
       {
-        label: "Components",
+        label: "Master Configuration",
         icon: "pi pi-fw pi-globe",
         badge: "9",
         items: [
           {
-            label: "Sample Page",
+            label: "Standards",
             icon: "pi pi-fw pi-star-o",
             command: () => {
-              window.location = "#/sample";
+              window.location = "#/standards";
+              this.setState({ layoutMode: "static" });
             }
           },
           {
-            label: "Forms",
+            label: "Divisions",
             icon: "pi pi-fw pi-calendar",
             command: () => {
-              window.location = "#/forms";
+              window.location = "#/divisions";
+              this.setState({ layoutMode: "static" });
             }
           },
           {
-            label: "Data",
+            label: "Subjects",
             icon: "pi pi-fw pi-align-justify",
             command: () => {
               window.location = "#/data";
             }
           },
           {
-            label: "Panels",
+            label: "Semesters",
             icon: "pi pi-fw pi-th-large",
             command: () => {
               window.location = "#/panels";
-            }
-          },
-          {
-            label: "Overlays",
-            icon: "pi pi-fw pi-clone",
-            command: () => {
-              window.location = "#/overlays";
-            }
-          },
-          {
-            label: "Menus",
-            icon: "pi pi-fw pi-bars",
-            command: () => {
-              window.location = "#/menus";
-            }
-          },
-          {
-            label: "Messages",
-            icon: "pi pi-fw pi-info-circle",
-            command: () => {
-              window.location = "#/messages";
-            }
-          },
-          {
-            label: "Charts",
-            icon: "pi pi-fw pi-clock",
-            command: () => {
-              window.location = "#/charts";
-            }
-          },
-          {
-            label: "Misc",
-            icon: "pi pi-fw pi-filter",
-            command: () => {
-              window.location = "#/misc";
             }
           }
         ]
       },
       {
-        label: "Template Pages",
+        label: "Administration",
         icon: "pi pi-fw pi-file",
         items: [
           {
-            label: "Empty Page",
+            label: "Users",
+            icon: "pi pi-fw pi-circle-off",
+            command: () => {
+              window.location = "#/empty";
+            }
+          },
+          {
+            label: "Roles",
+            icon: "pi pi-fw pi-circle-off",
+            command: () => {
+              window.location = "#/empty";
+            }
+          },
+          {
+            label: "Permission",
             icon: "pi pi-fw pi-circle-off",
             command: () => {
               window.location = "#/empty";
             }
           }
         ]
-      },
-      {
-        label: "Menu Hierarchy",
-        icon: "pi pi-fw pi-search",
-        items: [
-          {
-            label: "Submenu 1",
-            icon: "pi pi-fw pi-bookmark",
-            items: [
-              {
-                label: "Submenu 1.1",
-                icon: "pi pi-fw pi-bookmark",
-                items: [
-                  { label: "Submenu 1.1.1", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 1.1.2", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 1.1.3", icon: "pi pi-fw pi-bookmark" }
-                ]
-              },
-              {
-                label: "Submenu 1.2",
-                icon: "pi pi-fw pi-bookmark",
-                items: [
-                  { label: "Submenu 1.2.1", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 1.2.2", icon: "pi pi-fw pi-bookmark" }
-                ]
-              }
-            ]
-          },
-          {
-            label: "Submenu 2",
-            icon: "pi pi-fw pi-bookmark",
-            items: [
-              {
-                label: "Submenu 2.1",
-                icon: "pi pi-fw pi-bookmark",
-                items: [
-                  { label: "Submenu 2.1.1", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 2.1.2", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 2.1.3", icon: "pi pi-fw pi-bookmark" }
-                ]
-              },
-              {
-                label: "Submenu 2.2",
-                icon: "pi pi-fw pi-bookmark",
-                items: [
-                  { label: "Submenu 2.2.1", icon: "pi pi-fw pi-bookmark" },
-                  { label: "Submenu 2.2.2", icon: "pi pi-fw pi-bookmark" }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: "Documentation",
-        icon: "pi pi-fw pi-question",
-        command: () => {
-          window.location = "#/documentation";
-        }
-      },
-      {
-        label: "View Source",
-        icon: "pi pi-fw pi-search",
-        command: () => {
-          window.location = "https://github.com/primefaces/sigma";
-        }
       }
     ];
   }
@@ -361,21 +276,13 @@ class App extends Component {
         </div>
 
         <div className="layout-main">
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/post" exact component={Post} />
-          <Route path="/register" exact component={Register} />
-          <Route path="/forms" component={FormsDemo} />
-          <Route path="/sample" component={SampleDemo} />
-          <Route path="/data" component={DataDemo} />
-          <Route path="/panels" component={PanelsDemo} />
-          <Route path="/overlays" component={OverlaysDemo} />
-          <Route path="/menus" component={MenusDemo} />
-          <Route path="/messages" component={MessagesDemo} />
-          <Route path="/charts" component={ChartsDemo} />
-          <Route path="/misc" component={MiscDemo} />
-          <Route path="/empty" component={EmptyPage} />
-          <Route path="/documentation" component={Documentation} />
+          <BrowserRouter>
+            <Switch>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+            </Switch>
+          </BrowserRouter>
         </div>
 
         <AppFooter />
