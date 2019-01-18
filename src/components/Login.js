@@ -30,7 +30,7 @@ export class Login extends Component {
     const { login, message } = this.state;
     return (
       <div className="p-grid">
-        <div className="p-col-6 p-lg-6 p-offset-3">
+        <div className="p-col-12 p-md-6 p-md-offset-3">
           <div className="card card-w-title">
             <h1>Welcome back</h1>
             <form onSubmit={this.submitHandler} autoComplete="off">
