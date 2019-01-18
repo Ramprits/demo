@@ -6,24 +6,28 @@ export class Subjects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subjects: []
+      subjects: [],
+      loading: true
     };
     this.subjectService = new SubjectService();
   }
   componentWillMount() {
     debugger;
     this.subjectService.getSubjects().then(data => {
-      this.setState({ subjects: data });
+      this.setState({ subjects: data, loading: false });
       console.log(data);
     });
   }
   render() {
+    const { subjects, loading } = this.state;
     return (
       <div className="p-grid">
         <div className="p-col-12">
           <div className="card">
             <DataTable
-              value={this.state.subjects}
+              loading={loading}
+              loadingIcon="fas fa-spinner"
+              value={subjects}
               responsive={true}
               header="Subject List"
               paginator={true}

@@ -18,12 +18,8 @@ export class AppInlineProfile extends Component {
   render() {
     return (
       <div className="profile">
-        <div>
-          <img src="assets/layout/images/profile.png" alt="" />
-        </div>
         <a className="profile-link" href="#/" onClick={this.onClick}>
-          <span className="username">Stanthony High School</span>
-          <i className="pi pi-fw pi-cog" />
+          <h2 className="username">St. Anthony High School</h2>
         </a>
         <ul className={classNames({ "profile-expanded": this.state.expanded })}>
           <li>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import classNames from "classnames";
 import { AppTopbar } from "./AppTopbar";
 import { AppFooter } from "./AppFooter";
@@ -95,87 +95,6 @@ class App extends Component {
         }
       },
       {
-        label: "Student Management",
-        icon: "pi pi-fw pi-cog",
-        items: [
-          {
-            label: "Students",
-            icon: "pi pi-fw pi-bars",
-            command: () => {
-              window.location = "#/students";
-              this.setState({ layoutMode: "static" });
-            }
-          },
-          {
-            label: "Admissions",
-            icon: "pi pi-fw pi-bars",
-            command: () => {
-              window.location = "#/admissions";
-              this.setState({ layoutMode: "static" });
-            }
-          },
-          {
-            label: "Transfer",
-            icon: "pi pi-fw pi-bars",
-            command: () => {
-              window.location = "#/transfer";
-              this.setState({ layoutMode: "static" });
-            }
-          }
-        ]
-      },
-      {
-        label: "Result Management",
-        icon: "pi pi-fw pi-align-left",
-        items: [
-          {
-            label: "Results",
-            icon: "pi pi-fw pi-bars",
-            command: () => {
-              window.location = "#/results";
-              this.setState({ layoutColorMode: "dark", layoutMode: "static" });
-            }
-          }
-        ]
-      },
-      {
-        label: "Master Configuration",
-        icon: "pi pi-fw pi-globe",
-        badge: "9",
-        items: [
-          {
-            label: "Standards",
-            icon: "pi pi-fw pi-star-o",
-            command: () => {
-              window.location = "#/standards";
-              this.setState({ layoutMode: "static" });
-            }
-          },
-          {
-            label: "Divisions",
-            icon: "pi pi-fw pi-calendar",
-            command: () => {
-              window.location = "#/divisions";
-              this.setState({ layoutMode: "static" });
-            }
-          },
-          {
-            label: "Subjects",
-            icon: "pi pi-fw pi-align-justify",
-            command: () => {
-              window.location = "#/subjects";
-            }
-          },
-          {
-            label: "Semesters",
-            icon: "pi pi-fw pi-th-large",
-            command: () => {
-              window.location = "#/panels";
-            }
-          }
-        ]
-      },
-      {
         label: "Administration",
         icon: "pi pi-fw pi-file",
         items: [
@@ -198,6 +117,91 @@ class App extends Component {
             icon: "pi pi-fw pi-circle-off",
             command: () => {
               window.location = "#/empty";
+            }
+          }
+        ]
+      },
+      {
+        label: "Master Configuration",
+        icon: "pi pi-fw pi-home",
+        items: [
+          {
+            label: "Standards",
+            icon: "pi pi-fw pi-star-o",
+            command: () => {
+              window.location = "#/standards";
+              this.setState({ layoutMode: "static" });
+            }
+          },
+          {
+            label: "Subjects",
+            icon: "pi pi-fw pi-calendar",
+            command: () => {
+              window.location = "#/subjects";
+              this.setState({ layoutMode: "static" });
+            }
+          },
+          {
+            label: "Division",
+            icon: "pi pi-fw pi-align-justify",
+            command: () => {
+              window.location = "#/subjects";
+            }
+          },
+          {
+            label: "Semesters",
+            icon: "pi pi-fw pi-th-large",
+            command: () => {
+              window.location = "#/panels";
+            }
+          },
+          {
+            label: "Standard-Subjects",
+            icon: "pi pi-fw pi-th-large",
+            command: () => {
+              window.location = "#/panels";
+            }
+          },
+          {
+            label: "Standard-Divisions",
+            icon: "pi pi-fw pi-th-large",
+            command: () => {
+              window.location = "#/panels";
+            }
+          },
+          {
+            label: "Standard-Semesters",
+            icon: "pi pi-fw pi-th-large",
+            command: () => {
+              window.location = "#/panels";
+            }
+          }
+        ]
+      },
+      {
+        label: "Student Management",
+        icon: "pi pi-fw pi-cog",
+        items: [
+          {
+            label: "Students",
+            icon: "pi pi-fw pi-bars",
+            command: () => {
+              window.location = "#/students";
+              this.setState({ layoutMode: "static" });
+            }
+          }
+        ]
+      },
+      {
+        label: "Result Declaration",
+        icon: "pi pi-fw pi-align-left",
+        items: [
+          {
+            label: "Results",
+            icon: "pi pi-fw pi-bars",
+            command: () => {
+              window.location = "#/results";
+              this.setState({ layoutColorMode: "dark", layoutMode: "static" });
             }
           }
         ]
@@ -233,11 +237,6 @@ class App extends Component {
   }
 
   render() {
-    let logo =
-      this.state.layoutColorMode === "dark"
-        ? "assets/layout/images/logo-white.svg"
-        : "assets/layout/images/logo.svg";
-
     let wrapperClass = classNames("layout-wrapper", {
       "layout-overlay": this.state.layoutMode === "overlay",
       "layout-static": this.state.layoutMode === "static",
@@ -265,9 +264,6 @@ class App extends Component {
             style={{ height: "100%" }}
           >
             <div className="layout-sidebar-scroll-content">
-              <div className="layout-logo">
-                <img alt="Logo" src={logo} />
-              </div>
               <AppInlineProfile />
               <AppMenu
                 model={this.menu}
@@ -278,11 +274,10 @@ class App extends Component {
         </div>
 
         <div className="layout-main">
-          <Redirect from="/#/" to="/login" />
           <Route path="/dashboard" exact component={Dashboard} />
-          <Route exact path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/subjects" component={Subjects} />
+          <Route exact path="/" component={Login} />
         </div>
 
         <AppFooter />

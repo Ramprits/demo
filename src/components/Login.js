@@ -7,18 +7,27 @@ export class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      message: "",
+      login: "Login"
     };
   }
   submitHandler = event => {
     event.preventDefault();
+    if (this.isFormEmpty(this.state)) {
+      return this.setState({ message: "Please your username/password" });
+    }
+    this.props.history.push("/dashboard");
   };
 
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
+  isFormEmpty({ username, password }) {
+    return !username || !password;
+  }
   render() {
+    const { login, message } = this.state;
     return (
       <div className="p-grid">
         <div className="p-col-6 p-lg-6 p-offset-3">
@@ -44,12 +53,17 @@ export class Login extends Component {
                   <InputText
                     style={{ width: "100%" }}
                     name="password"
+                    type="password"
                     onChange={this.changeHandler}
                     placeholder="Password"
                   />
                 </div>
+
+                <div className="p-col-3 p-md-3" />
+                <div className="p-col-9 p-md-9">{message}</div>
+
                 <div className="p-col-9 p-md-9 p-offset-3">
-                  <Button type="submit" label="Login" />
+                  <Button type="submit" label={login} />
                 </div>
               </div>
             </form>
