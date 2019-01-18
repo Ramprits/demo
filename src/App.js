@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import classNames from "classnames";
 import { AppTopbar } from "./AppTopbar";
 import { AppFooter } from "./AppFooter";
@@ -8,6 +8,8 @@ import { AppInlineProfile } from "./AppInlineProfile";
 import { Dashboard } from "./components/Dashboard";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
+import { Subjects } from "./components/Subjects";
+
 import { ScrollPanel } from "primereact/components/scrollpanel/ScrollPanel";
 import "primereact/resources/themes/nova-light/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -89,7 +91,7 @@ class App extends Component {
         label: "Dashboard",
         icon: "pi pi-fw pi-home",
         command: () => {
-          window.location = "#/";
+          window.location = "#/dashboard";
         }
       },
       {
@@ -161,7 +163,7 @@ class App extends Component {
             label: "Subjects",
             icon: "pi pi-fw pi-align-justify",
             command: () => {
-              window.location = "#/data";
+              window.location = "#/subjects";
             }
           },
           {
@@ -276,13 +278,11 @@ class App extends Component {
         </div>
 
         <div className="layout-main">
-          <BrowserRouter>
-            <Switch>
-              <Route path="/" exact component={Dashboard} />
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-            </Switch>
-          </BrowserRouter>
+          <Redirect from="/#/" to="/login" />
+          <Route path="/dashboard" exact component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/subjects" component={Subjects} />
         </div>
 
         <AppFooter />
