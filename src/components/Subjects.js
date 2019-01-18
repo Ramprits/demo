@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { DataTable } from "primereact/datatable";
-import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { SubjectService } from "../service/SubjectService";
 export class Subjects extends Component {
