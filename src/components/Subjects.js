@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import _ from "lodash";
+// import moment from "moment";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { SubjectService } from "../service/SubjectService";
@@ -14,7 +16,6 @@ export class Subjects extends Component {
   componentWillMount() {
     this.subjectService.getSubjects().then(data => {
       this.setState({ subjects: data, loading: false });
-      console.log(JSON.stringify(data, undefined, 2));
     });
   }
   render() {
@@ -24,6 +25,7 @@ export class Subjects extends Component {
         <div className="p-col-12">
           <div className="card">
             <DataTable
+              emptyMessage="There are not subject available"
               loading={loading}
               loadingIcon="fas fa-spinner"
               value={subjects}

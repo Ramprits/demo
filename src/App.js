@@ -148,7 +148,7 @@ class App extends Component {
             label: "Division",
             icon: "pi pi-fw pi-align-justify",
             command: () => {
-              window.location = "#/subjects";
+              window.location = "#/divisions";
             }
           },
           {
