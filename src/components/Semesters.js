@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-export default class Semesters extends Component {
+export class Semesters extends Component {
   render() {
     return (
-        <div className="p-grid">
+      <div className="p-grid">
         <div className="p-col-12">
           <div className="card">
             <h1>Empty Page</h1>
@@ -13,6 +13,6 @@ export default class Semesters extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

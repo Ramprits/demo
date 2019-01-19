@@ -7,6 +7,7 @@
     "url": "https://github.com/primefaces/sigma.git"
   },
   "license": "MIT",
+  "proxy": "http://apis.stanthonyhighschool.com",
   "dependencies": {
     "axios": "^0.15.3",
     "babel-polyfill": "^6.26.0",

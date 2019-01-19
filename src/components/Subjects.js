@@ -12,10 +12,9 @@ export class Subjects extends Component {
     this.subjectService = new SubjectService();
   }
   componentWillMount() {
-    debugger;
     this.subjectService.getSubjects().then(data => {
       this.setState({ subjects: data, loading: false });
-      console.log(data);
+      console.log(JSON.stringify(data, undefined, 2));
     });
   }
   render() {
@@ -36,6 +35,18 @@ export class Subjects extends Component {
             >
               <Column field="name" header="Name" sortable={true} />
               <Column field="code" header="Code" sortable={true} />
+              <Column field="addedById" header="Added By" sortable={true} />
+              <Column field="addedDate" header="Added Date" sortable={true} />
+              <Column
+                field="modifiedById"
+                header="Modified By"
+                sortable={true}
+              />
+              <Column
+                field="modifiedDate"
+                header="Modified Date"
+                sortable={true}
+              />
             </DataTable>
           </div>
         </div>

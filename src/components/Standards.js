@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Standards extends Component {
+export class Standards extends Component {
   render() {
     return (
       <div className="p-grid">

@@ -9,6 +9,9 @@ import { Dashboard } from "./components/Dashboard";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Subjects } from "./components/Subjects";
+import { Standards } from "./components/Standards";
+import { Divisions } from "./components/Divisions";
+import { Semesters } from "./components/Semesters";
 
 import { ScrollPanel } from "primereact/components/scrollpanel/ScrollPanel";
 import "primereact/resources/themes/nova-light/theme.css";
@@ -152,7 +155,7 @@ class App extends Component {
             label: "Semesters",
             icon: "pi pi-fw pi-th-large",
             command: () => {
-              window.location = "#/panels";
+              window.location = "#/semesters";
             }
           },
           {
@@ -277,6 +280,10 @@ class App extends Component {
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/register" component={Register} />
           <Route path="/subjects" component={Subjects} />
+          <Route path="/standards" component={Standards} />
+          <Route path="/divisions" component={Divisions} />
+          <Route path="/semesters" component={Semesters} />
+
           <Route exact path="/" component={Login} />
         </div>
 
