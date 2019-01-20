@@ -12,6 +12,9 @@ import { Subjects } from "./components/Subjects";
 import { Standards } from "./components/Standards";
 import { Divisions } from "./components/Divisions";
 import { Semesters } from "./components/Semesters";
+import { Users } from "./components/Users";
+import { Roles } from "./components/Roles";
+import { Permission } from "./components/Permission";
 
 import { ScrollPanel } from "primereact/components/scrollpanel/ScrollPanel";
 import "primereact/resources/themes/nova-light/theme.css";
@@ -105,21 +108,21 @@ class App extends Component {
             label: "Users",
             icon: "pi pi-fw pi-circle-off",
             command: () => {
-              window.location = "#/empty";
+              window.location = "#/users";
             }
           },
           {
             label: "Roles",
             icon: "pi pi-fw pi-circle-off",
             command: () => {
-              window.location = "#/empty";
+              window.location = "#/roles";
             }
           },
           {
             label: "Permission",
             icon: "pi pi-fw pi-circle-off",
             command: () => {
-              window.location = "#/empty";
+              window.location = "#/permission";
             }
           }
         ]
@@ -283,6 +286,9 @@ class App extends Component {
           <Route path="/standards" component={Standards} />
           <Route path="/divisions" component={Divisions} />
           <Route path="/semesters" component={Semesters} />
+          <Route path="/users" component={Users} />
+          <Route path="/roles" component={Roles} />
+          <Route path="/permission" component={Permission} />
 
           <Route exact path="/" component={Login} />
         </div>

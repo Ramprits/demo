@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import _ from "lodash";
-// import moment from "moment";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { SubjectService } from "../service/SubjectService";
