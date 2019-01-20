@@ -42,6 +42,7 @@ export class Subjects extends Component {
                 header="Modified By"
                 sortable={true}
               />
+              
               <Column
                 field="modifiedDate"
                 header="Modified Date"
